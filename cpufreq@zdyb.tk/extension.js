@@ -10,7 +10,7 @@ const CPUFreq = imports.ui.extensionSystem.extensions["cpufreq@zdyb.tk"];
 const CPUSysfs = CPUFreq.cpusysfs;
 const CPUFreqIndicator = CPUFreq.indicator.CPUFreqIndicator;
 
-const UPDATE_INTERVAL = 1000;
+const UPDATE_INTERVAL = 1;
 const DESATURATE = true;
 
 let cpufreq;
@@ -43,7 +43,7 @@ CPUFrequency.prototype = {
 	Run: function() {
 		this.run = true;
 		this.update();
-		Mainloop.timeout_add(UPDATE_INTERVAL, Lang.bind(this, this.update));
+		Mainloop.timeout_add_seconds(UPDATE_INTERVAL, Lang.bind(this, this.update));
 	},
 	
 	Stop: function() {

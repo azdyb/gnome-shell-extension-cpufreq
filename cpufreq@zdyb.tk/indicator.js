@@ -16,7 +16,7 @@ CPUFreqIndicator.prototype = {
         this.cpu = cpu;
         this.extensionMeta = extensionMeta;
         
-        paths = {
+        let paths = {
             na:  this.extensionMeta.path + "/icons/cpufreq-na.png",
             25:  this.extensionMeta.path + "/icons/cpufreq-25.png",
             50:  this.extensionMeta.path + "/icons/cpufreq-50.png",
