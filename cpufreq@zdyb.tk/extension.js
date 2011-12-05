@@ -57,6 +57,7 @@ CPUFrequency.prototype = {
 	},
 	
 	enable: function() {
+		this.run = true;
 		this.update();
 		this._update_handler = Mainloop.timeout_add_seconds(UPDATE_INTERVAL, Lang.bind(this, this.update));
 		Main.panel._rightBox.insert_actor(this.actor, 0);
