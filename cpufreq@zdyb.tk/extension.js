@@ -6,9 +6,19 @@ const Main = imports.ui.main;
 const Mainloop = imports.mainloop;
 const Clutter = imports.gi.Clutter;
 
-const CPUFreq = imports.ui.extensionSystem.extensions["cpufreq@zdyb.tk"];
-const CPUSysfs = CPUFreq.cpusysfs;
-const CPUFreqIndicator = CPUFreq.indicator.CPUFreqIndicator;
+let CPUFreq
+let CPUSysfs
+let CPUFreqIndicator
+if(imports.ui.extensionSystem.extensions){
+	CPUFreq = imports.ui.extensionSystem.extensions["cpufreq@zdyb.tk"];
+	CPUSysfs = CPUFreq.cpusysfs;
+	CPUFreqIndicator = CPUFreq.indicator.CPUFreqIndicator;
+}else{
+	CPUFreq = imports.misc.extensionUtils.extensions["cpufreq@zdyb.tk"];
+	CPUSysfs = CPUFreq.imports.cpusysfs;
+	CPUFreqIndicator = CPUFreq.imports.indicator.CPUFreqIndicator;
+}
+
 
 const UPDATE_INTERVAL = 1;
 const DESATURATE = true;
@@ -60,7 +70,11 @@ CPUFrequency.prototype = {
 		this.run = true;
 		this.update();
 		this._update_handler = Mainloop.timeout_add_seconds(UPDATE_INTERVAL, Lang.bind(this, this.update));
-		Main.panel._rightBox.insert_actor(this.actor, 0);
+		if(Main.panel._rightBox.insert_actor){
+			Main.panel._rightBox.insert_actor(this.actor, 0);
+		}else{
+			Main.panel._rightBox.insert_child_above(this.actor,Main.panel._rightBox.get_first_child());
+		}	
 		Main.panel._menus.addMenu(this.menu);
 	},
 	
@@ -75,5 +89,7 @@ CPUFrequency.prototype = {
 function init(extensionMeta) {
 	return new CPUFrequency(extensionMeta);
 }
+
+
 
 
