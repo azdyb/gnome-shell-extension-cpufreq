@@ -46,3 +46,4 @@ CPUFreqIndicator.prototype = {
         this.menu.label.set_text("cpu" + this.cpu.id + ": " + this.cpu.get_current_frequency_formated() +  " (" + this.cpu.get_current_goveror() + ")");
     }
 }
+
