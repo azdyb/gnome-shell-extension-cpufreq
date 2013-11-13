@@ -24,7 +24,7 @@ if (GnomeShellVersion > "3.5.5")
 }
 else
 {
-    CPUFreq = imports.misc.extensionUtils.extensions["cpufreq@zdyb.tk"];
+    CPUFreq = imports.ui.extensionSystem.extensions["cpufreq@zdyb.tk"];
     CPUSysfs = CPUFreq.cpusysfs;
     CPUFreqIndicator = CPUFreq.indicator.CPUFreqIndicator;
 }
