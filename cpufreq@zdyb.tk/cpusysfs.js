@@ -95,3 +95,4 @@ function format_frequency(freq) {
 
     return format;
 }
+

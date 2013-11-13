@@ -1,5 +1,5 @@
 {
-    "shell-version": ["3.2"],
+    "shell-version": ["3.2", "3.8"],
     "uuid": "cpufreq@zdyb.tk",
     "name": "CPU Frequency",
     "description": "Shows current CPU frequency on main panel",
