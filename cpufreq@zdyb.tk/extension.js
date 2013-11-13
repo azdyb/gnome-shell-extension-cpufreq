@@ -7,14 +7,27 @@ const Mainloop = imports.mainloop;
 const Clutter = imports.gi.Clutter;
 const Config = imports.misc.config;
 
-const CPUFreq = imports.misc.extensionUtils.getCurrentExtension();
-const CPUSysfs = CPUFreq.imports.cpusysfs;
-const CPUFreqIndicator = CPUFreq.imports.indicator.CPUFreqIndicator;
-
 const UPDATE_INTERVAL = 1;
 const DESATURATE = true;
 
 const GnomeShellVersion = Config.PACKAGE_VERSION;
+
+let CPUFreq;
+let CPUSysfs;
+let CPUFreqIndicator;
+
+if (GnomeShellVersion > "3.5.5")
+{
+    CPUFreq = imports.misc.extensionUtils.getCurrentExtension();
+    CPUSysfs = CPUFreq.imports.cpusysfs;
+    CPUFreqIndicator = CPUFreq.imports.indicator.CPUFreqIndicator;
+}
+else
+{
+    CPUFreq = imports.misc.extensionUtils.extensions['cpufreq@zdyb.tk'];
+    CPUSysfs = CPUFreq.cpusysfs;
+    CPUFreqIndicator = CPUFreq.indicator.CPUFreqIndicator;
+}
 
 function CPUFrequency(extensionMeta) {
     this._init.apply(this, [extensionMeta]);
