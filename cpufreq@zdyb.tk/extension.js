@@ -14,7 +14,7 @@ const CPUFreqIndicator = CPUFreq.imports.indicator.CPUFreqIndicator;
 const UPDATE_INTERVAL = 1;
 const DESATURATE = true;
 
-let version = Config.PACKAGE_VERSION;
+const GnomeShellVersion = Config.PACKAGE_VERSION;
 
 function CPUFrequency(extensionMeta) {
     this._init.apply(this, [extensionMeta]);
@@ -72,7 +72,7 @@ CPUFrequency.prototype = {
     },
 
     remove: function() {
-       if (version > "3.5.5")
+       if (GnomeShellVersion > "3.5.5")
        {
            Main.panel._rightBox.remove_actor(this);
            Main.panel.menuManager.removeMenu(this.menu)
@@ -85,7 +85,7 @@ CPUFrequency.prototype = {
     },
 
     add: function() {
-       if (version > "3.5.5")
+       if (GnomeShellVersion > "3.5.5")
        {
            Main.panel._addToPanelBox('cpufreq', this, 0, Main.panel._rightBox);
            Main.panel.menuManager.addMenu(this.menu);
