@@ -12,7 +12,7 @@ const CPUSysfs = CPUFreq.imports.cpusysfs;
 const CPUFreqIndicator = CPUFreq.imports.indicator.CPUFreqIndicator;
 
 const UPDATE_INTERVAL = 1;
-const DESATURATE = false;
+const DESATURATE = true;
 
 let version = Config.PACKAGE_VERSION;
 
@@ -60,7 +60,7 @@ CPUFrequency.prototype = {
     
     enable: function() {
         this.run = true;
-//        this.update();
+        this.update();
         this._update_handler = Mainloop.timeout_add_seconds(UPDATE_INTERVAL, Lang.bind(this, this.update));
         this.add();
     },
