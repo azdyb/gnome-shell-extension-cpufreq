@@ -1,8 +1,0 @@
-{
-    "shell-version": ["3.2"],
-    "uuid": "cpufreq@zdyb.tk",
-    "name": "CPU Frequency",
-    "description": "Shows current CPU frequency on main panel",
-    "url": "http://github.com/ojo/gnome-shell-extension-cpufreq",
-    "author": "Aleksander Zdyb"
-}

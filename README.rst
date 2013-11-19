@@ -36,13 +36,13 @@ The extension scans /sys/devices/system/cpu[0-9]+/cpufreq directories to find in
 Instalation
 ===========
 
-The cpufreq@zdyb.tk directory should be copied to /usr/share/gnome-shell/extensions or ~/.local/share/gnome-shell/extensions/::
+The cpufreq@arfbtwn.uk directory should be copied to /usr/share/gnome-shell/extensions or ~/.local/share/gnome-shell/extensions/::
 
-  # cp cpufreq\@zdyb.tk /usr/share/gnome-shell/extensions
+  # cp cpufreq\@arfbtwn.uk /usr/share/gnome-shell/extensions
   
 or::
 
-  $ cp cpufreq\@zdyb.tk ~/.local/share/gnome-shell/extensions/
+  $ cp cpufreq\@arfbtwn.uk ~/.local/share/gnome-shell/extensions/
   
 Please do not forget to enable the newly installed extension using for example gnome-tweak-tool_.
 

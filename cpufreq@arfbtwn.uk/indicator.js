@@ -11,6 +11,7 @@ CPUFreqIndicator.prototype = {
 
     cpu: null,
     icons: {},
+    destroyed: false,
     
     _init: function(extensionMeta, cpu) {
         this.cpu = cpu;
@@ -38,11 +39,11 @@ CPUFreqIndicator.prototype = {
         
         this.actor.add_actor(this.icon);
         this.menu = new PopupMenu.PopupMenuItem("cpu" + this.cpu.id, { reactive: false, style_class: "cpu" });
-        this.update();
     },
     
     update: function() {
         this.icon.gicon = this.icons[this.cpu.get_current_frequency_range()];
-        this.menu.label.set_text("cpu" + this.cpu.id + ": " + this.cpu.get_current_frequency_formated() +  " (" + this.cpu.get_current_goveror() + ")");
+        this.menu.label.set_text("cpu" + this.cpu.id + ": " + this.cpu.get_current_frequency_formatted() +  " (" + this.cpu.get_current_governor() + ")");
     }
 }
+
