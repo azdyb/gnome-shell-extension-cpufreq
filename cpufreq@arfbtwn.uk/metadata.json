@@ -1,6 +1,6 @@
 {
     "shell-version": ["3.2", "3.8"],
-    "uuid": "cpufreq@arfbtwn.net",
+    "uuid": "cpufreq@arfbtwn.uk",
     "name": "CPU Frequency",
     "description": "Shows CPU frequency information",
     "url": "http://github.com/arfbtwn/gnome-shell-extension-cpufreq",

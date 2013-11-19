@@ -43,7 +43,9 @@ Cpu.prototype = {
     },
     
     get_current_frequency: function() {
-        return this.__get_value(this.sys_path + "/" + Frequency);
+        let freq = this.__get_value(this.sys_path + "/" + Frequency);
+
+        return freq == null ? 0 : freq;
     },
     
     get_current_frequency_formatted: function() {
@@ -78,7 +80,7 @@ Cpu.prototype = {
 }
 
 function __get_array(filename) {
-    let content = GLib.file_get_contents(filename);
+    let content = __get_value(filename);
     if (content[0]) {
         return content[1].toString().match(/\w+/g);
     }
@@ -86,11 +88,18 @@ function __get_array(filename) {
 }
 
 function __get_value(filename) {
-    let content = GLib.file_get_contents(filename);
-    if (content[0]) {
-        return content[1].toString().match(/\w+/);
+    let content = null; 
+    try
+    {
+        let file = GLib.file_get_contents(filename);
+        if (file[0]) {
+            content = file[1].toString().match(/\w+/);
+        }
     }
-    else return null;
+    finally
+    {
+        return content;
+    }
 }
 
 function __compare_numbers_desc(a, b) {

@@ -10,7 +10,7 @@ if (GnomeShellVersion > "3.5.5")
 }
 else
 {
-    CPUFreq = imports.ui.extensionSystem.extensions["cpufreq@arfbtwn.net"];
+    CPUFreq = imports.ui.extensionSystem.extensions["cpufreq@arfbtwn.uk"];
     Acpi = CPUFreq.acpi.Cpu;
 }
 
@@ -27,7 +27,9 @@ Cpu.prototype.constructor = Cpu;
 
 Cpu.prototype.get_current_frequency = function()
 {
-    return this.__get_value(this.sys_path + "/" + Frequency);
+    let freq = this.__get_value(this.sys_path + "/" + Frequency);
+
+    return freq == null ? 0 : freq;
 };
 
 Cpu.prototype.get_frequencies = function()

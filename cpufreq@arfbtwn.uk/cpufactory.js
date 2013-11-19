@@ -15,7 +15,7 @@ if (GnomeShellVersion > "3.5.5")
 }
 else
 {
-    CPUFreq = imports.ui.extensionSystem.extensions["cpufreq@arfbtwn.net"];
+    CPUFreq = imports.ui.extensionSystem.extensions["cpufreq@arfbtwn.uk"];
     Acpi = CPUFreq.acpi.Cpu;
     Intel = CPUFreq.intel.Cpu;
 }
